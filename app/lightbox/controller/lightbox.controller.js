@@ -31,7 +31,11 @@
                     }, step)
             }
             $scope.open = function(){
-                $scope.start(setupData,diff,step);
+                if($scope.complete){
+                    $scope.enable = true;
+                }else{
+                    $scope.start(setupData,diff,step);
+                }
             }
             $scope.stop= function(){
                 $interval.cancel(promise);
